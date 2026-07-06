@@ -1,4 +1,4 @@
-import { NavigationRail } from '../../elements/navigation/navigation_rail.js';
+import { NavigationRail } from 'https://dreamforge-forging-our-dreams-in-tech.github.io/Pichai-UX-V2/code/js/elements/navigation/navigation_rail.js';
 
 import { GithubIntergration } from "../GithubIntergration.js";
 let github_intergration = new GithubIntergration();

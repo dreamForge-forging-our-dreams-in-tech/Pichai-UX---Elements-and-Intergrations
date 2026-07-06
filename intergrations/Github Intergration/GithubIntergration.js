@@ -1,4 +1,4 @@
-import { get_fetch } from "../Functions/fetch_get.js";
+import { get_fetch } from "../../Functions/fetch_get.js";
 
 class GithubIntergration {
     constructor(repUrl, orgName = 'dreamForge-forging-our-dreams-in-tech', repoName = 'The-Magic-Garden') {
