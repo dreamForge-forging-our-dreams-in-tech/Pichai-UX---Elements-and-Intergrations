@@ -11,6 +11,7 @@ class GithubMde extends HTMLElement {
         this.issue = null;
 
         github_intergration = new GithubIntergration(this.getAttribute('repoUrl'));
+        console.group(this.getAttribute('repoUrl'));
     }
 
     async renderComments(issueNumber, wrapper) {
