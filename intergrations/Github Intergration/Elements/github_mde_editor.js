@@ -10,8 +10,7 @@ class GithubMde extends HTMLElement {
 
         this.issue = null;
 
-        github_intergration = new GithubIntergration(this.getAttribute('repoUrl'));
-        console.group(this.getAttribute('repoUrl'));
+        github_intergration = new GithubIntergration(this.getAttribute('repoUrl'), this.getAttribute('orgName'), this.getAttribute('repoName'));
     }
 
     async renderComments(issueNumber, wrapper) {
@@ -143,9 +142,9 @@ class GithubMde extends HTMLElement {
 
         button.addEventListener('click', () => {
             if (this.getAttribute('mode') == 'comment') {
-                github_intergration.create_comment(mde_editor.value, this.issue.number, 'dreamForge-forging-our-dreams-in-tech', 'The-Magic-Garden');
+                github_intergration.create_comment(mde_editor.value, this.issue.number, this.getAttribute('orgName'), this.getAttribute('repoName'));
             } else {
-                github_intergration.create_issue('dreamForge-forging-our-dreams-in-tech', 'The-Magic-Garden', title_input.value, mde_editor.value, labels.getElementsByClassName('current')[0].getAttribute('href'));
+                github_intergration.create_issue(this.getAttribute('orgName'), this.getAttribute('repoName'), title_input.value, mde_editor.value, labels.getElementsByClassName('current')[0].getAttribute('href'));
             }
         });
 
