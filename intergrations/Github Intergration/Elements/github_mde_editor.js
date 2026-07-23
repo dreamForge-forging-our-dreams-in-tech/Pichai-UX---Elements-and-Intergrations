@@ -1,4 +1,5 @@
 import { GithubIntergration } from "../GithubIntergration.js";
+let github_intergration;
 
 // Create a class for the element
 class GithubMde extends HTMLElement {
@@ -9,7 +10,7 @@ class GithubMde extends HTMLElement {
 
         this.issue = null;
 
-        let github_intergration = new GithubIntergration(this.getAttribute('repoUrl'));
+        github_intergration = new GithubIntergration(this.getAttribute('repoUrl'));
     }
 
     async renderComments(issueNumber, wrapper) {
