@@ -1,5 +1,4 @@
 import { GithubIntergration } from "../GithubIntergration.js";
-let github_intergration = new GithubIntergration();
 
 // Create a class for the element
 class GithubMde extends HTMLElement {
@@ -9,6 +8,8 @@ class GithubMde extends HTMLElement {
         super();
 
         this.issue = null;
+
+        let github_intergration = new GithubIntergration(this.getAttribute('repoUrl'));
     }
 
     async renderComments(issueNumber, wrapper) {
@@ -100,7 +101,7 @@ class GithubMde extends HTMLElement {
 
             title_input = document.createElement('input');
             title_input.classList.add('tabBarHolder');
-            title_input.placeholder = 'Issue or comment title';
+            title_input.placeholder = 'Title';
             title_input.value = this.issue ? this.issue.title : ''; // set the title of the issue if the issue number was provided.
 
             title_input.style.borderRadius = 'var(--border-radius-short)';
@@ -119,7 +120,7 @@ class GithubMde extends HTMLElement {
         let mde_editor = document.createElement('textarea');
         mde_editor.id = 'mde_eitor';
         mde_editor.classList.add('tabBarHolder');
-        mde_editor.placeholder = 'Issue or comment body';
+        mde_editor.placeholder = 'Body';
         mde_editor.value = this.getAttribute('issueBody') || (this.issue ? this.issue.body : ''); // set the body of the issue if the issue number was provided.
 
         mde_editor.style.width = 'calc(100% - 16px)';
